@@ -13,3 +13,10 @@ zone "matheus.asa.br"{
         any;
     };
 };
+zone "cliente1.asa.br"{
+    type master;
+    file "/etc/bind/cliente1.asa.br";
+    allow-transfer {
+        any;
+    };
+};

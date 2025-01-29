@@ -28,15 +28,14 @@ services:
     networks:
       - cliente-1
   
-  proxy:
+  proxy-cliente-1:
     build:
       context: ./proxy
       dockerfile: Dockerfile
-    container_name: proxy
+    container_name: proxy-cliente-1
     networks:
       - cliente-1
     ports:
-      - "80:80/tcp"
       - "443:443/tcp"
     depends_on:
       - wordpress-1
