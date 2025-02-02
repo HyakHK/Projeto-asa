@@ -36,9 +36,45 @@ services:
     volumes: 
       - mail:/var/mail
 
+  db:
+    image: mariadb:10.6
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=adm
+      - MYSQL_PASSWORD=123
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - provedor
+
+
+  app:
+    image: nextcloud
+    restart: always
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - nextcloud:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=123
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=db
+      - SMTP_HOST=mail.matheus.asa.br
+      - MAIL_FROM_ADDRESS=matheus.asa.br
+      - MAIL_DOMAIN=mail.matheus.asa.br
+    networks:
+      - provedor
 
 volumes:
   mail:
+  nextcloud:
+  db:
     
 
 
