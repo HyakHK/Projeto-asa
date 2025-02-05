@@ -6,7 +6,7 @@
 # is /etc/mailname.
 #myorigin = /etc/mailname
 
-myorigin = matheus.asa.br
+myorigin = ponta-negra.asa.br
 #equivale aos o @ IMPORTAMTE
 
 # smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
@@ -40,7 +40,7 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 # myhostname = localhost
 
-myhostname = mail.matheus.asa.br
+myhostname = mail.ponta-negra.asa.br
 
 
 alias_maps = hash:/etc/aliases

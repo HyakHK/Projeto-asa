@@ -25,6 +25,7 @@ services:
     build:
       context: ./mail
       dockerfile: Dockerfile
+    hostname: mail.ponta-negra.asa.br
     ports: 
       - "25:25/tcp"
       - "587:587/tcp"
@@ -66,8 +67,10 @@ services:
       - ROUNDCUBEMAIL_DB_HOST=roundcubedb
       - ROUNDCUBEMAIL_DB_PASSWORD=roundcube-mysql-pw
       - ROUNDCUBEMAIL_SKIN=elastic
-      - ROUNDCUBEMAIL_DEFAULT_HOST=matheus.asa.br
-      - ROUNDCUBEMAIL_SMTP_SERVER=mail.matheus.asa.br
+      - ROUNDCUBEMAIL_DEFAULT_HOST=mail.ponta-negra.asa.br
+      - ROUNDCUBEMAIL_SMTP_SERVER=mail.ponta-negra.asa.br
+      - ROUNDCUBEMAIL_SMTP_PORT=587
+      - ROUNDCUBEMAIL_DEFAULT_PORT=143
     networks:
       - provedor
 

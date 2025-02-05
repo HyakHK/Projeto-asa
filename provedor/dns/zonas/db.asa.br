@@ -2,7 +2,7 @@
 ; BIND data file for asa.br zone
 ; in www physical ip
 $TTL	604800
-@	IN	SOA	ns.matheus.asa.br. matheus.asa.br. (
+@	IN	SOA	ns.ponta-negra.asa.br. ponta-negra.asa.br. (
 			      3		; Serial
 			 604800		; Refresh
 			  86400		; Retry
