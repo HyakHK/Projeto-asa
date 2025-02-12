@@ -20,3 +20,10 @@ zone "do-forte.asa.br"{
         any;
     };
 };
+zone "tibau-sul.asa.br"{
+    type master;
+    file "/etc/bind/tibau-sul.asa.br";
+    allow-transfer {
+        any;
+    };
+};

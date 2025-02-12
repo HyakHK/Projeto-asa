@@ -12,6 +12,7 @@ services:
       - wordpress-1:/var/www/html
     networks:
       - cliente-1
+      - rede-proxy
 
   db:
     image: mysql:8.0
@@ -50,19 +51,9 @@ services:
       - wordpress-2:/var/www/html
     networks:
       - cliente-1
+      - rede-proxy
 
   
-  proxy-cliente-1:
-    build:
-      context: ./proxy
-      dockerfile: Dockerfile
-    container_name: proxy-cliente-1
-    networks:
-      - cliente-1
-    ports:
-      - "443:443/tcp"
-    depends_on:
-      - wordpress-1
 
 volumes:
   wordpress-1:
@@ -73,3 +64,5 @@ volumes:
 networks:
   cliente-1:
     driver: bridge
+  rede-proxy:
+    external: true

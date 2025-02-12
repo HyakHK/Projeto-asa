@@ -15,6 +15,7 @@ services:
     container_name: proxy
     networks:
       - provedor
+      - rede-proxy
     ports:
       - "80:80/tcp"
     depends_on:
@@ -89,3 +90,5 @@ volumes:
 networks:
   provedor:
     driver: bridge
+  rede-proxy:
+    external: true
