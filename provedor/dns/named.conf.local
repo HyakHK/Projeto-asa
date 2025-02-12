@@ -13,9 +13,9 @@ zone "ponta-negra.asa.br"{
         any;
     };
 };
-zone "cliente1.asa.br"{
+zone "do-forte.asa.br"{
     type master;
-    file "/etc/bind/cliente1.asa.br";
+    file "/etc/bind/do-forte.asa.br";
     allow-transfer {
         any;
     };
