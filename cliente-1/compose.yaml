@@ -26,6 +26,7 @@ services:
       - db:/var/lib/mysql
     networks:
       - cliente-1
+      - rede-proxy
   db2:
     image: mysql:8.0
     restart: always
@@ -38,6 +39,7 @@ services:
       - db2:/var/lib/mysql
     networks:
       - cliente-1
+      - rede-proxy
 
   wordpress-2:
     image: wordpress

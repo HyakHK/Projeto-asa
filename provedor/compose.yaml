@@ -18,6 +18,7 @@ services:
       - rede-proxy
     ports:
       - "80:80/tcp"
+      - "443:443/udp"
     depends_on:
       - mailserver
 
