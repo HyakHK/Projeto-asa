@@ -55,6 +55,28 @@ services:
       - cliente-1
       - rede-proxy
 
+
+  openssh-server:
+    build:
+      context: ./ssh
+      dockerfile: Dockerfile
+    container_name: openssh-server
+    hostname: openssh
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUDO_ACCESS=true
+      - USER_NAME=user
+      - USER_PASSWORD=testing
+      - PASSWORD_ACCESS=true
+    volumes:
+      - ssh:/config
+    ports:
+      - 2222:2222
+    networks:
+      - cliente-1
+
   
 
 volumes:
@@ -62,6 +84,7 @@ volumes:
   wordpress-2:
   db:
   db2:
+  ssh:
 
 networks:
   cliente-1:
