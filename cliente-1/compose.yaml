@@ -9,13 +9,13 @@ services:
       WORDPRESS_DB_PASSWORD: 123
       WORDPRESS_DB_NAME: db
     volumes:
-      - wordpress-1:/var/www/html
+      - ./1/wordpress:/var/www/html
     networks:
       - cliente-1
       - rede-proxy
 
   db:
-    image: mysql:8.0
+    image: mariadb:10.6.4-focal
     restart: always
     environment:
       MYSQL_DATABASE: db
@@ -23,12 +23,12 @@ services:
       MYSQL_PASSWORD: 123
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db:/var/lib/mysql
+      - ./1/maria:/var/lib/mysql
     networks:
       - cliente-1
       - rede-proxy
   db2:
-    image: mysql:8.0
+    image: mariadb:10.6.4-focal
     restart: always
     environment:
       MYSQL_DATABASE: db2
@@ -36,7 +36,7 @@ services:
       MYSQL_PASSWORD: 123
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db2:/var/lib/mysql
+      - ./2/maria:/var/lib/mysql
     networks:
       - cliente-1
       - rede-proxy
@@ -50,7 +50,7 @@ services:
       WORDPRESS_DB_PASSWORD: 123
       WORDPRESS_DB_NAME: db2
     volumes:
-      - wordpress-2:/var/www/html
+      - ./2/wordpress:/var/www/html
     networks:
       - cliente-1
       - rede-proxy
@@ -80,10 +80,6 @@ services:
   
 
 volumes:
-  wordpress-1:
-  wordpress-2:
-  db:
-  db2:
   ssh:
 
 networks:
