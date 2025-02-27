@@ -27,3 +27,17 @@ zone "tibau-sul.asa.br"{
         any;
     };
 };
+zone "miami.asa.br"{
+    type master;
+    file "/etc/bind/miami.asa.br";
+    allow-transfer {
+        any;
+    };
+};
+zone "genipabu.asa.br"{
+    type master;
+    file "/etc/bind/genipabu.asa.br";
+    allow-transfer {
+        any;
+    };
+};
