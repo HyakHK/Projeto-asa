@@ -1,6 +1,6 @@
 services:
 
-  wordpress-1:
+  wordpress-1-1:
     image: wordpress
     restart: always
     environment:
@@ -41,7 +41,7 @@ services:
       - cliente-1
       - rede-proxy
 
-  wordpress-2:
+  wordpress-2-1:
     image: wordpress
     restart: always
     environment:
