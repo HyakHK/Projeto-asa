@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2025-02-20 18:56:49
+timestamp=2025-03-06 18:27:08
 create-version=2
 source=SELECT s2.avg_us avg_us,\n       IFNULL(SUM(s1.cnt)/NULLIF((SELECT COUNT(*) FROM performance_schema.events_statements_summary_by_digest), 0), 0) percentile\n  FROM sys.x$ps_digest_avg_latency_distribution AS s1\n  JOIN sys.x$ps_digest_avg_latency_distribution AS s2\n    ON s1.avg_us <= s2.avg_us\n GROUP BY s2.avg_us\nHAVING IFNULL(SUM(s1.cnt)/NULLIF((SELECT COUNT(*) FROM performance_schema.events_statements_summary_by_digest), 0), 0) > 0.95\n ORDER BY percentile\n LIMIT 1;
 client_cs_name=utf8mb3
