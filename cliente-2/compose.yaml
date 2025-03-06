@@ -60,7 +60,7 @@ services:
     build:
       context: ./ssh
       dockerfile: Dockerfile
-    container_name: openssh-server
+    container_name: openssh-server-2
     hostname: openssh
     environment:
       - PUID=1000
@@ -73,7 +73,7 @@ services:
     volumes:
       - ssh:/config
     ports:
-      - 2222:2222
+      - 2223:2222
     networks:
       - cliente-2
 

@@ -60,7 +60,7 @@ services:
     build:
       context: ./ssh
       dockerfile: Dockerfile
-    container_name: openssh-server
+    container_name: openssh-server-1
     hostname: openssh
     environment:
       - PUID=1000
